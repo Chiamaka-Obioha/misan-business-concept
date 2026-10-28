@@ -308,8 +308,9 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
       ${err()}<button class="ob-btn" data-ob="signup">Create account</button>
       <p class="ob-small">By continuing you agree to the terms and privacy notice. We'll text a code to confirm your phone.</p>`,
     otpSignup: () => `${back('signup')}<h1>CONFIRM YOUR PHONE</h1>
-      <p class="ob-lede">Enter the 6-digit code we sent to ${A().phone}. For this demo, any 6 digits work.</p>
-      ${inp('ob-otp', 'Code', '6-digit code', 'class="ob-otp" inputmode="numeric" maxlength="6"')}
+      <p class="ob-lede">Enter the 6-digit code we sent to ${A().phone}.</p>
+      <div class="ob-note" role="note"><b>Demo code: 123456</b><br>This is a prototype, so no text is sent. Type 123456 or any other 6 digits.</div>
+      ${inp('ob-otp', 'Code', 'e.g. 123456', 'class="ob-otp" inputmode="numeric" maxlength="6"')}
       ${err()}<button class="ob-btn" data-ob="signupDone">Confirm</button>`,
     login: () => `${back('welcome')}<h1>LOG IN</h1>
       ${inp('li-email', 'Work email', 'name@yourbusiness.com', 'autocomplete="username"')}
@@ -323,8 +324,9 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
         ${accounts.signup ? `<div class="ob-check"><span class="grow"><span class="t">The account you created</span><span class="ob-small">${accounts.signup.acct.email} · your password</span></span><button class="ob-btn soft" data-ob="demo" data-v="signup">Use</button></div>` : ''}
       </div>`,
     otp: () => `${back('login')}<h1>CHECK YOUR PHONE</h1>
-      <p class="ob-lede">Enter the 6-digit code we sent to ${A().phone.slice(0, 8)} *** ${A().phone.slice(-4)}. For this demo, any 6 digits work.</p>
-      ${inp('ob-otp', 'Code', '6-digit code', 'class="ob-otp" inputmode="numeric" maxlength="6"')}
+      <p class="ob-lede">Enter the 6-digit code we sent to ${A().phone.slice(0, 8)} *** ${A().phone.slice(-4)}.</p>
+      <div class="ob-note" role="note"><b>Demo code: 123456</b><br>This is a prototype, so no text is sent. Type 123456 or any other 6 digits.</div>
+      ${inp('ob-otp', 'Code', 'e.g. 123456', 'class="ob-otp" inputmode="numeric" maxlength="6"')}
       ${err()}${note()}<button class="ob-btn" data-ob="verifyOtp">Verify and log in</button>
       <button class="ob-link" data-ob="resend">Send a new code</button>`,
     switchSignin: () => `${back('welcome')}<h1>USE YOUR PERSONAL ACCOUNT</h1>
