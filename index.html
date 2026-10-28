@@ -146,6 +146,81 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
 .tabs button { min-height: 52px; border: none; background: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: #9A9AA5; font-size: 11px; font-weight: 600; }
 .tabs button[aria-current="page"] { color: var(--ink); }
 @media (prefers-reduced-motion: reduce) { .tog { transition: none; } }
+.kybm { border-radius: 16px; padding: 14px 16px; font-size: 13px; line-height: 1.5; display: flex; flex-direction: column; }
+.kybm.warn { background: var(--warn-bg); color: var(--warn); }
+.kybm.info { background: var(--lilac); color: var(--violet-deep); }
+.chip-btn { flex: 0 0 auto !important; min-height: 38px; border: none; border-radius: 10px; padding: 0 14px; background: var(--ink); color: var(--lime); font-weight: 600; font-size: 13px; }
+.chip-btn.ghost { background: transparent; color: inherit; border: 1.5px solid currentColor; }
+.keybox { background: #fff; border: 1.5px dashed var(--violet); border-radius: 10px; padding: 10px 12px; font-family: var(--mono); font-size: 12.5px; word-break: break-all; color: var(--ink); }
+.err { background: #FDECEA; color: #B3261E; border-radius: 10px; padding: 10px 12px; font-size: 13px; font-weight: 600; }
+.primary[disabled] { opacity: .4; cursor: not-allowed; }
+
+/* Onboarding: welcome, log in, sign up (new or switch from personal), verification. */
+.ob { flex: 1; overflow-y: auto; background: var(--paper); color: var(--text); }
+.ob.web { min-height: calc(100vh - 32px); background: var(--ground); }
+.ob-wrap { max-width: 600px; margin: 0 auto; padding-block: 22px 44px; padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; }
+.ob.web .ob-wrap { padding-block: 40px 64px; }
+.ob.web .ob-card { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.ob:not(.web) .ob-card { display: flex; flex-direction: column; gap: 14px; }
+.ob h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 30px; line-height: 1.04; color: var(--ink); text-wrap: balance; }
+.ob h2 { margin: 6px 0 0; font-size: 15px; font-weight: 700; }
+.ob-lede { margin: 0; color: var(--muted); line-height: 1.55; font-size: 14px; }
+.ob-small { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+.ob-hero { background: var(--ink); color: #fff; border-radius: 22px; padding: 26px 22px; display: flex; flex-direction: column; gap: 10px; }
+.ob-hero .word { font-family: var(--display); font-size: 34px; line-height: 1; color: var(--lime); }
+.ob-hero p { margin: 0; color: #DCD3EE; line-height: 1.55; }
+.ob-btn { min-height: 52px; border: none; border-radius: 14px; background: var(--ink); color: var(--lime); font-weight: 600; font-size: 15px; width: 100%; font-family: inherit; cursor: pointer; }
+.ob-btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+.ob-btn.soft { background: var(--lilac); color: var(--violet-deep); min-height: 40px; font-size: 13px; width: auto; padding: 0 14px; border-radius: 10px; }
+.ob-btn[disabled] { opacity: .45; cursor: not-allowed; }
+.ob-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.ob-row > * { flex: 1 1 160px; }
+.ob-link { border: none; background: none; color: var(--violet); font-weight: 600; font-family: inherit; font-size: 14px; padding: 6px 0; cursor: pointer; align-self: flex-start; }
+.ob-back { width: 44px; height: 44px; margin: -6px 0 -6px -10px; border: none; background: none; display: grid; place-items: center; cursor: pointer; }
+.ob-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ob-field label { font-size: 12px; font-weight: 600; color: var(--muted); }
+.ob-field input, .ob-field select { height: 48px; border: 1.5px solid #E0DEE8; border-radius: 12px; padding: 0 14px; background: #fff; font-family: inherit; font-size: 16px; color: var(--text); width: 100%; box-sizing: border-box; }
+.ob-field input:focus, .ob-field select:focus { border-color: var(--violet); outline: none; }
+.ob-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 520px) { .ob-grid { grid-template-columns: minmax(0, 1fr); } }
+.ob-opts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 520px) { .ob-opts { grid-template-columns: minmax(0, 1fr); } }
+.ob-opt { border: 2px solid #E2E2E8; border-radius: 14px; background: #fff; padding: 12px 14px; text-align: left; display: flex; flex-direction: column; gap: 2px; font-family: inherit; cursor: pointer; color: var(--text); }
+.ob-opt[aria-pressed="true"] { border-color: var(--violet); background: #FBF8FF; }
+.ob-opt b { font-size: 14px; }
+.ob-opt span { font-size: 12px; color: var(--muted); }
+.ob-steps { display: flex; gap: 6px; }
+.ob-steps span { flex: 1; height: 5px; border-radius: 999px; background: #E4E2EC; }
+.ob-steps span.on { background: var(--violet); }
+.ob-stepname { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+.ob-kv { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.ob-kv:last-child { border-bottom: none; }
+.ob-kv .k { color: var(--muted); font-size: 14px; }
+.ob-kv .v { font-weight: 600; text-align: right; font-size: 14px; }
+.ob-box { background: var(--mist); border-radius: 16px; padding: 4px 16px; }
+.ob-found { border: 2px solid var(--violet); border-radius: 16px; padding: 14px 16px; background: #FBF8FF; display: flex; flex-direction: column; gap: 4px; }
+.ob-found b { font-size: 15px; }
+.ob-tick { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; background: var(--ok-bg); color: var(--ok); font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.ob-wait { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 999px; background: var(--warn-bg); color: var(--warn); font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.ob-check { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.ob-check:last-child { border-bottom: none; }
+.ob-check .t { font-weight: 600; font-size: 14px; }
+.ob-check .grow { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.ob-pill { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.ob-pill.ok { background: var(--ok-bg); color: var(--ok); }
+.ob-pill.warn { background: var(--warn-bg); color: var(--warn); }
+.ob-pill.info { background: var(--lilac); color: var(--violet-deep); }
+.ob-note { background: var(--lilac); color: var(--violet-deep); border-radius: 14px; padding: 12px 14px; font-size: 13px; line-height: 1.5; }
+.ob-note.warn { background: var(--warn-bg); color: var(--warn); }
+.ob-err { background: #FDECEA; color: #B3261E; border-radius: 12px; padding: 10px 14px; font-size: 13px; font-weight: 600; }
+.ob-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.ob-chip { border: 1.5px solid #E2E2E8; background: #fff; border-radius: 999px; padding: 7px 14px; font-weight: 600; font-size: 13px; font-family: inherit; cursor: pointer; color: var(--text); }
+.ob-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--lime); }
+.ob-consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; }
+.ob-consent input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--violet); flex-shrink: 0; }
+.ob-otp { letter-spacing: .5em; font-variant-numeric: tabular-nums; text-align: center; font-weight: 700; }
+.ob-selfie { border: 2px dashed #CFC8E0; border-radius: 16px; padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+[hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -154,6 +229,7 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
   <p class="caption">Clickable concept by Chiamaka Obioha for Misan Business. Not an official Misan product; all figures are samples.</p>
   <div class="phone">
     <div class="banner">Concept by Chiamaka Obioha · not an official Misan product</div>
+    <div class="ob" id="ob" hidden></div>
     <main class="screen" id="screen" aria-live="polite"></main>
     <div class="toast" id="toast" role="status" hidden></div>
     <nav class="tabs" id="tabs" aria-label="Main"></nav>
@@ -161,8 +237,270 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
 </div>
 
 <script>
+
+/* Onboarding module. Renders into #ob.
+   Host provides window.obHostShow(showApp) and window.obKyb(status) where status is 'none' | 'submitted'. */
 (function () {
-  const S = { payMode: 'single', recip: 'kwame', sendFrom: 'NGN', sendAmt: 500000, sendStage: 'form', newCur: 'GHS', newName: '', newType: '', fundCur: 'NGN', fundMethod: 'transfer', screen: 'home', cur: 'GBP', pay: 'p1', wallet: 0, opened: {}, convert: { GBP: true }, match: true, held: true,
+  const el = document.getElementById('ob');
+  const O = { view: 'welcome', path: 'new', kyb: 'none', step: 0, entity: 'ltd', rc: '1234567', looked: false, industry: 'Import and export', selfie: false,
+    acct: { first: 'Kola', last: 'Ogun', email: 'kola@kolaexports.example', phone: '+234 803 000 1122', biz: 'Kola Exports Ltd' },
+    invited: {}, signers: { kola: true, tunde: true }, pep: 'no', nominee: 'no', docs: {}, consent: false, consent2: false, err: '', note: '' };
+  const ent = {
+    ltd: { label: 'Limited company', sub: 'Ltd, registered with CAC (RC number)', num: 'RC number' },
+    bn: { label: 'Business name', sub: 'Sole owner or partnership (BN number)', num: 'BN number' },
+    it: { label: 'Incorporated trustees', sub: 'NGO, church, association (IT number)', num: 'IT number' }
+  };
+  const dnfbp = ['Real estate', 'Car dealership', 'Hotels and hospitality', 'Jewellery and precious metals', 'NGO or charity'];
+  const me = () => O.acct.first + ' ' + O.acct.last;
+  const people = () => O.entity === 'bn'
+    ? [['kola', me(), 'Proprietor, 100%', true]]
+    : O.entity === 'it'
+      ? [['kola', me(), 'Trustee and chair', true], ['tunde', 'Tunde Ade', 'Trustee', false], ['ngozi', 'Ngozi Bello', 'Trustee', false]]
+      : [['kola', me(), 'Director, 60% of shares', true], ['tunde', 'Tunde Ade', 'Director, 25% of shares', false], ['ngozi', 'Ngozi Bello', 'Shareholder, 15% of shares', false]];
+  const docList = () => {
+    const d = O.entity === 'ltd'
+      ? [['cert', 'Certificate of incorporation', 'cac'], ['status', 'CAC status report (directors, shareholders, persons with significant control)', 'cac'], ['memart', 'Memorandum and articles of association', 'up'], ['board', 'Board resolution to open the account and name signatories', 'up'], ['addr', 'Proof of business address (utility bill from the last 3 months)', 'up']]
+      : O.entity === 'bn'
+        ? [['cert', 'Business name certificate', 'cac'], ['status', 'CAC status report showing the proprietor(s)', 'cac'], ['addr', 'Proof of business address (utility bill from the last 3 months)', 'up']]
+        : [['cert', 'Certificate of incorporated trustees', 'cac'], ['const', 'Constitution', 'up'], ['board', 'Trustees\' resolution to open the account', 'up'], ['scuml', 'SCUML registration certificate', 'up'], ['addr', 'Proof of address (utility bill from the last 3 months)', 'up']];
+    if (O.entity !== 'it' && dnfbp.includes(O.industry)) d.push(['scuml', 'SCUML registration certificate (required for your industry)', 'up']);
+    return d;
+  };
+  const stepNames = ['You', 'Business', 'People', 'Documents', 'Review'];
+  const back = (to) => `<button class="ob-back" data-ob="to" data-v="${to}" aria-label="Back"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C0045" stroke-width="2.2" stroke-linecap="round"><path d="M20 12H4M10 6l-6 6 6 6"/></svg></button>`;
+  const tick = '<span class="ob-tick" aria-hidden="true">✓</span>';
+  const wait = '<span class="ob-wait" aria-hidden="true">…</span>';
+  const err = () => O.err ? `<div class="ob-err" role="alert">${O.err}</div>` : '';
+  const note = () => O.note ? `<div class="ob-note" role="status">${O.note}</div>` : '';
+  const stepper = () => `<div class="ob-row" style="justify-content:space-between;align-items:center"><span class="ob-stepname" style="flex:0 1 auto">Business verification · step ${O.step + 1} of 5 · ${stepNames[O.step]}</span><button class="ob-link" data-ob="later" style="flex:0 0 auto">Finish later</button></div><div class="ob-steps" aria-hidden="true">${stepNames.map((_, i) => `<span class="${i <= O.step ? 'on' : ''}"></span>`).join('')}</div>`;
+  const nav = (nextLabel) => `${err()}<div class="ob-row">${O.step > 0 ? '<button class="ob-btn ghost" data-ob="prev">Back</button>' : ''}<button class="ob-btn" data-ob="next">${nextLabel || 'Continue'}</button></div>`;
+  const val = (id) => { const i = document.getElementById(id); return i ? i.value.trim() : ''; };
+
+  const V = {
+    welcome: () => `
+      <div class="ob-hero"><span class="word">MISAN BUSINESS</span><p>Collect, pay, earn and borrow across Nigeria, Ghana, Kenya, the UK, Europe and Canada, from one business account.</p></div>
+      <button class="ob-btn" data-ob="to" data-v="signup">Create a business account</button>
+      <button class="ob-btn ghost" data-ob="to" data-v="switchSignin">I already use Misan for personal</button>
+      <p class="ob-small" style="text-align:center">Already have a business account? <button class="ob-link" data-ob="to" data-v="login" style="padding:0">Log in</button></p>
+      <p class="ob-small" style="text-align:center">Concept prototype by Chiamaka Obioha. Not an official Misan product. No real data is collected.</p>
+      <button class="ob-link" data-ob="skip" style="align-self:center">Skip to the demo dashboard</button>`,
+    signup: () => `${back('welcome')}<h1>CREATE YOUR ACCOUNT</h1>
+      <p class="ob-lede">It takes about a minute. You'll verify the business after you're in.</p>
+      <div class="ob-grid">
+        <div class="ob-field"><label for="ob-first">First name</label><input id="ob-first" value="${O.acct.first}" autocomplete="given-name"></div>
+        <div class="ob-field"><label for="ob-last">Last name</label><input id="ob-last" value="${O.acct.last}" autocomplete="family-name"></div>
+      </div>
+      <div class="ob-field"><label for="ob-biz">Business name</label><input id="ob-biz" value="${O.acct.biz}" autocomplete="organization"></div>
+      <div class="ob-field"><label for="ob-email">Work email</label><input id="ob-email" type="email" value="${O.acct.email}" autocomplete="email"></div>
+      <div class="ob-field"><label for="ob-phone">Phone number</label><input id="ob-phone" value="${O.acct.phone}" inputmode="tel" autocomplete="tel"></div>
+      <div class="ob-field"><label for="ob-pass">Password</label><input id="ob-pass" type="password" value="demo-password" autocomplete="new-password"></div>
+      ${err()}<button class="ob-btn" data-ob="signup">Create account</button>
+      <p class="ob-small">By continuing you agree to the terms and privacy notice. We'll text a code to confirm your phone.</p>`,
+    otpSignup: () => `${back('signup')}<h1>CONFIRM YOUR PHONE</h1>
+      <p class="ob-lede">Enter the 6-digit code we sent to ${O.acct.phone}.</p>
+      <div class="ob-field"><label for="ob-otp">Code</label><input id="ob-otp" class="ob-otp" inputmode="numeric" maxlength="6" value="482913"></div>
+      ${err()}<button class="ob-btn" data-ob="signupDone">Confirm</button>`,
+    login: () => `${back('welcome')}<h1>LOG IN</h1>
+      <div class="ob-field"><label for="ob-lemail">Work email or phone number</label><input id="ob-lemail" value="${O.acct.email}" autocomplete="username"></div>
+      <div class="ob-field"><label for="ob-lpass">Password</label><input id="ob-lpass" type="password" value="demo-password" autocomplete="current-password"></div>
+      ${err()}${note()}<button class="ob-btn" data-ob="login">Log in</button>
+      <button class="ob-link" data-ob="forgot">Forgot password?</button>`,
+    otp: () => `${back('login')}<h1>CHECK YOUR PHONE</h1>
+      <p class="ob-lede">Enter the 6-digit code we sent to +234 803 *** 1122. Two-step sign-in protects everyone who can move money.</p>
+      <div class="ob-field"><label for="ob-otp">Code</label><input id="ob-otp" class="ob-otp" inputmode="numeric" maxlength="6" value="482913"></div>
+      ${err()}${note()}<button class="ob-btn" data-ob="verifyOtp">Verify and log in</button>
+      <button class="ob-link" data-ob="resend">Send a new code</button>`,
+    switchSignin: () => `${back('welcome')}<h1>USE YOUR PERSONAL ACCOUNT</h1>
+      <p class="ob-lede">Sign in with your personal Misan details. Your identity checks carry over, so verifying the business later is quicker.</p>
+      <div class="ob-field"><label for="ob-sphone">Phone number on your personal account</label><input id="ob-sphone" value="${O.acct.phone}" inputmode="tel"></div>
+      <div class="ob-field"><label for="ob-spin">Transaction PIN</label><input id="ob-spin" type="password" inputmode="numeric" maxlength="4" value="1234"></div>
+      ${err()}<button class="ob-btn" data-ob="to" data-v="switchBiz">Continue</button>`,
+    switchBiz: () => `${back('switchSignin')}<h1>HI ${O.acct.first.toUpperCase()}, ADD YOUR BUSINESS</h1>
+      <p class="ob-lede">Your personal and business money stay in separate accounts. You can switch between them in the app.</p>
+      <div class="ob-field"><label for="ob-biz">Business name</label><input id="ob-biz" value="${O.acct.biz}"></div>
+      <div class="ob-field"><label for="ob-email">Work email</label><input id="ob-email" type="email" value="${O.acct.email}"></div>
+      ${err()}<button class="ob-btn" data-ob="switchDone">Create business account</button>`,
+    kybPrompt: () => `<h1>VERIFY ${O.acct.biz.toUpperCase()}</h1>
+      <p class="ob-lede">You're logged in. Before you can collect, pay out or use Earn, we need to verify the business. This is a Central Bank of Nigeria requirement for every business account.</p>
+      <div class="ob-box">
+        ${O.path === 'switch' ? `<div class="ob-check">${tick}<span class="grow"><span class="t">Your identity</span><span class="ob-small">Already verified on your personal account</span></span></div>` : `<div class="ob-check">${wait}<span class="grow"><span class="t">Your identity</span><span class="ob-small">BVN, NIN, date of birth, address and a selfie</span></span></div>`}
+        <div class="ob-check">${wait}<span class="grow"><span class="t">Business details</span><span class="ob-small">CAC number, industry, expected activity</span></span></div>
+        <div class="ob-check">${wait}<span class="grow"><span class="t">Owners and directors</span><span class="ob-small">Anyone with more than 5% or control verifies their BVN and NIN</span></span></div>
+        <div class="ob-check">${wait}<span class="grow"><span class="t">Documents</span><span class="ob-small">We fetch what we can from CAC</span></span></div>
+      </div>
+      <p class="ob-small">Takes about ${O.path === 'switch' ? '7' : '10'} minutes. You can save and finish later.</p>
+      <button class="ob-btn" data-ob="kybStart">Start verification</button>
+      <button class="ob-btn ghost" data-ob="later">Do it later</button>`,
+    flow: () => [stepYou, stepBusiness, stepPeople, stepDocs, stepReview][O.step](),
+    submitted: () => {
+      const ps = people().filter((p) => !p[3]);
+      return `<h1>WE'RE VERIFYING ${O.acct.biz.toUpperCase()}</h1>
+      <p class="ob-lede">Most businesses are verified within 1 business day. We'll notify you at each step.</p>
+      <div class="ob-box">
+        <div class="ob-check">${tick}<span class="grow"><span class="t">Business matched on the CAC register</span><span class="ob-small">${ent[O.entity].num} ${O.rc} · Active</span></span></div>
+        <div class="ob-check">${tick}<span class="grow"><span class="t">Your BVN and NIN</span><span class="ob-small">${O.path === 'switch' ? 'Reused from your personal account' : 'Checked with NIBSS and NIMC'}</span></span></div>
+        <div class="ob-check">${tick}<span class="grow"><span class="t">Sanctions and PEP screening</span><span class="ob-small">No matches</span></span></div>
+        ${ps.map((p) => `<div class="ob-check">${wait}<span class="grow"><span class="t">${p[1]}: BVN, NIN and selfie</span><span class="ob-small">${O.invited[p[0]] ? 'Invite sent, waiting for them' : 'Not invited yet'}</span></span></div>`).join('')}
+        <div class="ob-check">${wait}<span class="grow"><span class="t">Document review</span><span class="ob-small">Usually within 1 business day</span></span></div>
+      </div>
+      <div class="ob-note">While you wait, you can explore the dashboard, add payees and invite your team. Money movement unlocks once verification is complete.</div>
+      <button class="ob-btn" data-ob="done">Back to the dashboard</button>`;
+    }
+  };
+
+  function stepYou() {
+    if (O.path === 'switch') return `${stepper()}<h1>YOUR DETAILS</h1>
+      <p class="ob-lede">We already have these from your personal Misan account. You don't need to verify them again.</p>
+      <div class="ob-box">
+        <div class="ob-kv"><span class="k">Full name</span><span class="v">${me()} ${tick}</span></div>
+        <div class="ob-kv"><span class="k">Date of birth</span><span class="v">12 Feb 1986 ${tick}</span></div>
+        <div class="ob-kv"><span class="k">BVN</span><span class="v">222 *** 4417 ${tick}</span></div>
+        <div class="ob-kv"><span class="k">NIN</span><span class="v">*** *** 5590 ${tick}</span></div>
+        <div class="ob-kv"><span class="k">Phone</span><span class="v">+234 803 *** 1122 ${tick}</span></div>
+        <div class="ob-kv"><span class="k">Home address</span><span class="v">Lekki Phase 1, Lagos ${tick}</span></div>
+        <div class="ob-kv"><span class="k">Selfie and liveness check</span><span class="v">Done Aug 2026 ${tick}</span></div>
+      </div>
+      <div class="ob-field"><label for="ob-role">Your role in the business</label><select id="ob-role"><option>Director</option><option>Proprietor</option><option>Trustee</option><option>Finance lead</option></select></div>
+      <label class="ob-consent"><input type="checkbox" id="ob-c2" ${O.consent2 ? 'checked' : ''}><span>I agree that Misan can reuse my personal identity verification for this business account.</span></label>
+      ${nav()}`;
+    return `${stepper()}<h1>ABOUT YOU</h1>
+      <p class="ob-lede">You're the account owner, ${me()}. We check these details with NIBSS and NIMC.</p>
+      <div class="ob-grid">
+        <div class="ob-field"><label for="ob-dob">Date of birth</label><input id="ob-dob" value="12/02/1986"></div>
+        <div class="ob-field"><label for="ob-role">Your role in the business</label><select id="ob-role"><option>Director</option><option>Proprietor</option><option>Trustee</option><option>Finance lead</option></select></div>
+        <div class="ob-field"><label for="ob-bvn">BVN</label><input id="ob-bvn" value="22200004417" inputmode="numeric" maxlength="11"></div>
+        <div class="ob-field"><label for="ob-nin">NIN</label><input id="ob-nin" value="10000005590" inputmode="numeric" maxlength="11"></div>
+      </div>
+      <div class="ob-field"><label for="ob-addr">Home address</label><input id="ob-addr" value="Lekki Phase 1, Lagos"></div>
+      <div class="ob-selfie"><span><b>Selfie and liveness check</b><span class="ob-small" style="display:block">Matches your face to your BVN photo</span></span>${O.selfie ? '<span class="ob-pill ok">Done</span>' : '<button class="ob-btn soft" data-ob="selfie">Take selfie</button>'}</div>
+      ${nav()}`;
+  }
+  function stepBusiness() {
+    const e = ent[O.entity];
+    const found = O.looked ? `<div class="ob-found"><b>${O.acct.biz.toUpperCase()}</b>
+      <span class="ob-small">${e.num} ${O.rc} · Registered 14 Mar 2019 · Status: Active</span>
+      <span class="ob-small">12 Admiralty Way, Lekki, Lagos</span>
+      ${O.entity === 'ltd' ? '<span class="ob-small">Your RC number is also your Tax ID under the 2026 tax rules.</span>' : ''}</div>` : '';
+    return `${stepper()}<h1>YOUR BUSINESS</h1>
+      <div class="ob-opts">${Object.keys(ent).map((k) => `<button class="ob-opt" data-ob="entity" data-v="${k}" aria-pressed="${O.entity === k}"><b>${ent[k].label}</b><span>${ent[k].sub}</span></button>`).join('')}</div>
+      <div class="ob-row" style="align-items:flex-end"><div class="ob-field" style="flex:2 1 200px"><label for="ob-rc">${e.num}</label><input id="ob-rc" value="${O.rc}" inputmode="numeric"></div><button class="ob-btn soft" data-ob="lookup" style="flex:0 0 auto;min-height:48px">Find on CAC</button></div>
+      ${found}
+      ${O.entity !== 'ltd' ? `<div class="ob-field"><label for="ob-tin">Tax ID (TIN)</label><input id="ob-tin" value="12345678-0001" inputmode="numeric"></div>` : ''}
+      <div class="ob-grid">
+        <div class="ob-field"><label for="ob-ind">Industry</label><select id="ob-ind">${['Import and export', 'Retail and e-commerce', 'Logistics', 'Technology', 'Professional services', 'Real estate', 'Car dealership', 'Hotels and hospitality', 'Jewellery and precious metals', 'NGO or charity'].map((i) => `<option${i === O.industry ? ' selected' : ''}>${i}</option>`).join('')}</select></div>
+        <div class="ob-field"><label for="ob-web">Website or social media page (optional)</label><input id="ob-web" placeholder="e.g. kolaexports.com or @kolaexports"></div>
+        <div class="ob-field"><label for="ob-vol">Expected money in and out each month</label><select id="ob-vol"><option>Up to ₦5 million</option><option selected>₦5m to ₦50m</option><option>₦50m to ₦500m</option><option>Over ₦500m</option></select></div>
+        <div class="ob-field"><label for="ob-src">Where the money comes from</label><select id="ob-src"><option>Sales to customers</option><option>Investment or shareholder funds</option><option>Grants or donations</option><option>Loans</option></select></div>
+      </div>
+      <div class="ob-field"><label>Countries you'll send to or receive from</label><div class="ob-chips">${['Nigeria', 'Ghana', 'Kenya', 'United Kingdom', 'United States', 'Eurozone', 'Canada', 'China'].map((c, i) => `<button class="ob-chip" data-ob="chip" aria-pressed="${i < 4}">${c}</button>`).join('')}</div></div>
+      ${dnfbp.includes(O.industry) ? '<div class="ob-note warn">Businesses in this industry must also register with SCUML (the special control unit against money laundering). We\'ll ask for the certificate.</div>' : ''}
+      ${nav()}`;
+  }
+  function stepPeople() {
+    const ps = people();
+    return `${stepper()}<h1>OWNERS AND DIRECTORS</h1>
+      <p class="ob-lede">From your CAC record. Everyone who owns more than 5% of the business, or controls it, must verify their BVN, NIN and a selfie. We'll send each of them a secure link.</p>
+      <div class="ob-box">${ps.map((p) => `<div class="ob-check">${p[3] ? tick : wait}<span class="grow"><span class="t">${p[1]}${p[3] ? ' (you)' : ''}</span><span class="ob-small">${p[2]}</span></span>${p[3] ? '<span class="ob-pill ok">Verified</span>' : O.invited[p[0]] ? '<span class="ob-pill info">Invite sent</span>' : `<button class="ob-btn soft" data-ob="invite" data-v="${p[0]}">Send invite</button>`}</div>`).join('')}</div>
+      <h2>Who can approve payments?</h2>
+      <div class="ob-chips">${ps.map((p) => `<button class="ob-chip" data-ob="signer" data-v="${p[0]}" aria-pressed="${!!O.signers[p[0]]}">${p[1]}</button>`).join('')}</div>
+      <h2>Is any owner, director or signatory a politically exposed person?</h2>
+      <p class="ob-small">For example a current or former senior public official, or their close family or associates.</p>
+      <div class="ob-chips"><button class="ob-chip" data-ob="pep" data-v="no" aria-pressed="${O.pep === 'no'}">No</button><button class="ob-chip" data-ob="pep" data-v="yes" aria-pressed="${O.pep === 'yes'}">Yes</button></div>
+      ${O.pep === 'yes' ? '<div class="ob-field"><label for="ob-wealth">Their source of wealth</label><input id="ob-wealth" placeholder="e.g. salary, business income, inheritance"></div><div class="ob-note warn">We\'ll apply enhanced checks and a senior compliance review. This can add 1 to 2 business days.</div>' : ''}
+      ${O.entity !== 'bn' ? `<h2>Does anyone hold shares or a directorship on someone else's behalf?</h2>
+      <div class="ob-chips"><button class="ob-chip" data-ob="nominee" data-v="no" aria-pressed="${O.nominee === 'no'}">No</button><button class="ob-chip" data-ob="nominee" data-v="yes" aria-pressed="${O.nominee === 'yes'}">Yes</button></div>
+      ${O.nominee === 'yes' ? '<div class="ob-field"><label for="ob-nomfor">Who are they acting for?</label><input id="ob-nomfor" placeholder="Full name of the person they act for"></div>' : ''}` : ''}
+      ${nav()}`;
+  }
+  function stepDocs() {
+    return `${stepper()}<h1>DOCUMENTS</h1>
+      <p class="ob-lede">We fetch what we can from CAC. Upload the rest as PDF or photo.</p>
+      <div class="ob-box">${docList().map((d) => {
+        const have = d[2] === 'cac' || O.docs[d[0]];
+        return `<div class="ob-check">${have ? tick : wait}<span class="grow"><span class="t">${d[1]}</span><span class="ob-small">${d[2] === 'cac' ? 'Fetched from CAC' : O.docs[d[0]] ? O.docs[d[0]] : 'Needed'}</span></span>${have ? '' : `<button class="ob-btn soft" data-ob="upload" data-v="${d[0]}">Upload</button>`}</div>`;
+      }).join('')}</div>
+      ${O.entity !== 'bn' ? '<button class="ob-link" data-ob="template">Download a board resolution template</button>' : ''}
+      ${nav()}`;
+  }
+  function stepReview() {
+    const ps = people();
+    return `${stepper()}<h1>CHECK AND SUBMIT</h1>
+      <div class="ob-box">
+        <div class="ob-kv"><span class="k">Business</span><span class="v">${O.acct.biz}</span></div>
+        <div class="ob-kv"><span class="k">Type</span><span class="v">${ent[O.entity].label}, ${ent[O.entity].num} ${O.rc}</span></div>
+        <div class="ob-kv"><span class="k">Industry</span><span class="v">${O.industry}</span></div>
+        <div class="ob-kv"><span class="k">Account owner</span><span class="v">${me()}${O.path === 'switch' ? ' (personal verification reused)' : ''}</span></div>
+        <div class="ob-kv"><span class="k">Owners and directors</span><span class="v">${ps.length}, ${ps.filter((p) => p[3]).length} verified</span></div>
+        <div class="ob-kv"><span class="k">Can approve payments</span><span class="v">${ps.filter((p) => O.signers[p[0]]).map((p) => p[1]).join(', ') || 'Nobody yet'}</span></div>
+        <div class="ob-kv"><span class="k">Politically exposed person</span><span class="v">${O.pep === 'yes' ? 'Yes' : 'No'}</span></div>
+        <div class="ob-kv"><span class="k">Documents</span><span class="v">${docList().filter((d) => d[2] === 'cac' || O.docs[d[0]]).length} of ${docList().length}</span></div>
+      </div>
+      <label class="ob-consent"><input type="checkbox" id="ob-c1" ${O.consent ? 'checked' : ''}><span>I confirm this information is true and complete, and I'll tell Misan if it changes. I agree to Misan checking it with CAC, NIBSS, NIMC, the tax authority and screening lists, in line with the Nigeria Data Protection Act.</span></label>
+      ${nav('Submit for verification')}`;
+  }
+
+  function render() { el.innerHTML = `<div class="ob-wrap"><div class="ob-card">${V[O.view]()}</div></div>`; el.scrollTop = 0; window.scrollTo(0, 0); }
+  function to(v) { O.view = v; O.err = ''; O.note = ''; render(); }
+  function enterApp() { window.obKyb(O.kyb); window.obHostShow(true); }
+  function validate() {
+    if (O.step === 0 && O.path === 'switch' && !O.consent2) return 'Tick the box to let us reuse your personal verification.';
+    if (O.step === 0 && O.path === 'new' && !O.selfie) return 'Take your selfie to continue.';
+    if (O.step === 1 && !O.looked) return 'Find your business on CAC first.';
+    if (O.step === 2 && !Object.values(O.signers).some(Boolean)) return 'Choose at least one person who can approve payments.';
+    if (O.step === 3) { const miss = docList().filter((d) => d[2] !== 'cac' && !O.docs[d[0]]); if (miss.length) return 'Upload ' + miss.length + ' more document' + (miss.length > 1 ? 's' : '') + ' to continue.'; }
+    if (O.step === 4 && !O.consent) return 'Tick the box to confirm your details.';
+    return '';
+  }
+  const act = {
+    to: (v) => to(v),
+    signup: () => {
+      const a = { first: val('ob-first'), last: val('ob-last'), biz: val('ob-biz'), email: val('ob-email'), phone: val('ob-phone') };
+      const missing = Object.keys(a).filter((k) => !a[k]);
+      if (missing.length) { O.err = 'Fill in every field to create your account.'; render(); return; }
+      if (!/^\S+@\S+\.\S+$/.test(a.email)) { O.err = 'Enter a valid work email, like name@business.com.'; render(); return; }
+      O.acct = a; O.path = 'new'; to('otpSignup');
+    },
+    signupDone: () => { if (val('ob-otp').replace(/\D/g, '').length !== 6) { O.err = 'The code has 6 digits. Check the text message and try again.'; render(); return; } O.kyb = 'none'; enterApp(); },
+    switchDone: () => { const b = val('ob-biz'), e = val('ob-email'); if (!b || !e) { O.err = 'Add the business name and a work email.'; render(); return; } O.acct.biz = b; O.acct.email = e; O.path = 'switch'; O.kyb = 'none'; enterApp(); },
+    login: () => { if (!val('ob-lemail')) { O.err = 'Enter your work email or phone number.'; render(); return; } to('otp'); },
+    verifyOtp: () => { if (val('ob-otp').replace(/\D/g, '').length !== 6) { O.err = 'The code has 6 digits. Check the text message and try again.'; render(); return; } if (O.kyb === 'none') to('kybPrompt'); else enterApp(); },
+    forgot: () => { O.note = 'We sent a reset link to ' + O.acct.email + ' (demo).'; O.err = ''; render(); },
+    resend: () => { O.note = 'New code sent (demo).'; render(); },
+    skip: () => { O.kyb = 'verified'; enterApp(); },
+    later: () => enterApp(),
+    kybStart: () => { O.step = 0; to('flow'); },
+    done: () => { O.kyb = 'submitted'; enterApp(); },
+    selfie: () => { O.selfie = true; render(); },
+    entity: (v) => { O.entity = v; O.looked = false; O.docs = {}; O.signers = { kola: true }; O.rc = v === 'ltd' ? '1234567' : v === 'bn' ? '3456789' : '98765'; render(); },
+    lookup: () => { O.rc = val('ob-rc') || O.rc; O.looked = true; O.err = ''; render(); },
+    chip: (v, b) => { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); },
+    invite: (v) => { O.invited[v] = true; render(); },
+    signer: (v) => { O.signers[v] = !O.signers[v]; render(); },
+    pep: (v) => { O.pep = v; render(); },
+    nominee: (v) => { O.nominee = v; render(); },
+    upload: (v) => { O.docs[v] = v + '-' + O.acct.biz.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.pdf · uploaded'; render(); },
+    template: (v, b) => { b.textContent = 'Template ready: board-resolution-template.docx (demo)'; },
+    prev: () => { O.step = Math.max(0, O.step - 1); O.err = ''; render(); },
+    next: () => { const m = validate(); if (m) { O.err = m; render(); return; } O.err = ''; if (O.step === 4) { O.kyb = 'submitted'; window.obKyb('submitted'); to('submitted'); return; } O.step += 1; render(); }
+  };
+  el.addEventListener('click', (e) => { const b = e.target.closest('[data-ob]'); if (!b) return; e.preventDefault(); act[b.dataset.ob](b.dataset.v, b); });
+  el.addEventListener('change', (e) => {
+    if (e.target.id === 'ob-ind') { O.industry = e.target.value; render(); }
+    if (e.target.id === 'ob-c1') O.consent = e.target.checked;
+    if (e.target.id === 'ob-c2') O.consent2 = e.target.checked;
+  });
+  const fresh = JSON.stringify(O);
+  window.OB = {
+    start: (v) => { const keep = { kyb: O.kyb, path: O.path, acct: O.acct }; Object.assign(O, JSON.parse(fresh), keep); O.view = v || 'welcome'; window.obHostShow(false); render(); },
+    kyb: () => { O.view = O.kyb === 'submitted' ? 'submitted' : 'kybPrompt'; O.err = ''; window.obHostShow(false); render(); },
+    biz: () => O.acct.biz
+  };
+})();
+
+</script>
+<script>
+(function () {
+  const S = { kyb: 'verified', key: 'sk_test_8f2c41d07be93a5c61d23f9a', regen: false, keyShown: false, ips: [['102.89.34.18', 'Lagos office'], ['41.58.120.0/24', 'Production servers']], ipErr: '', hookUrl: '', hookEvents: { 'collection.credited': true, 'payout.completed': true }, hookSaved: false, hookErr: '', payMode: 'single', recip: 'kwame', sendFrom: 'NGN', sendAmt: 500000, sendStage: 'form', newCur: 'GHS', newName: '', newType: '', fundCur: 'NGN', fundMethod: 'transfer', screen: 'home', cur: 'GBP', pay: 'p1', wallet: 0, opened: {}, convert: { GBP: true }, match: true, held: true,
     run: 'draft', earnCur: 'NGN', sweep: true, wd: 'notice', rule: true, xero: false };
 
   const ic = {
@@ -185,7 +523,7 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
     { code: 'GBP', name: 'British Pound', country: 'United Kingdom', rails: 'Faster Payments', live: true, lines: [['Sort code', '12-34-56'], ['Account number', '12345678'], ['Bank', '[Partner bank]']] },
     { code: 'USD', name: 'US Dollar', country: 'United States', rails: 'ACH or wire', live: true, lines: [['Routing number', '123456789'], ['Account number', '000123456789'], ['Bank', '[Partner bank]']] },
     { code: 'EUR', name: 'Euro', country: 'Eurozone', rails: 'SEPA', live: true, lines: [['IBAN', 'BE00 1234 5678 9012'], ['BIC', 'SAMPBEBB'], ['Bank', '[Partner bank]']] },
-    { code: 'NGN', name: 'Nigerian Naira', country: 'Nigeria', rails: 'NIP bank transfer', live: true, lines: [['Account number', '0123456789'], ['Bank', '[Partner MFB]']] },
+    { code: 'NGN', name: 'Nigerian Naira', country: 'Nigeria', rails: 'NIP bank transfer', live: true, lines: [['Account number', '0123456789'], ['Bank', 'Flutterwave MFB']] },
     { code: 'GHS', name: 'Ghanaian Cedi', country: 'Ghana', rails: 'bank or mobile money', live: false, lines: [['Account number', '1234567890123'], ['Bank', '[Partner bank]']] },
     { code: 'KES', name: 'Kenyan Shilling', country: 'Kenya', rails: 'bank or M-Pesa', live: false, lines: [['M-Pesa Paybill', '123456'], ['Account number', 'KOLA001']] }
   ];
@@ -208,7 +546,7 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
   const toggle = (key, label, on) => `<button class="tog" data-a="${key}" aria-pressed="${on}" aria-label="${label}"></button>`;
 
   const fundInfo = {
-    NGN: { sym: '₦', amt: '500,000', lines: [['Account number', '0123456789'], ['Bank', '[Partner MFB]'], ['Account name', 'KOLA EXPORTS LTD - MISAN']], via: 'any Nigerian bank app', fee: '2% of the amount', when: 'Usually within a minute' },
+    NGN: { sym: '₦', amt: '500,000', lines: [['Account number', '0123456789'], ['Bank', 'Flutterwave MFB'], ['Account name', 'KOLA EXPORTS LTD - MISAN']], via: 'any Nigerian bank app', fee: '2% of the amount', when: 'Usually within a minute' },
     USD: { sym: '$', amt: '1,000', lines: [['Routing number', '123456789'], ['Account number', '000123456789'], ['Account name', 'KOLA EXPORTS LTD']], via: 'ACH or wire from a US bank', fee: 'Free for ACH', when: '1 to 2 business days' },
     GBP: { sym: '£', amt: '1,000', lines: [['Sort code', '12-34-56'], ['Account number', '12345678'], ['Account name', 'KOLA EXPORTS LTD']], via: 'Faster Payments from a UK bank', fee: 'Free', when: 'Usually within minutes' }
   };
@@ -306,6 +644,7 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
           <span class="end num">+${p.amount}<span class="small" style="font-weight:600;color:${toneColor[p.tone]}">${p.status}</span></span>
         </button>`; }).join('');
       return `
+        ${S.kyb === 'verified' ? '' : S.kyb === 'submitted' ? `<div class="kybm info"><b>Verification in progress.</b> Usually within 1 business day.<span class="ob-row" style="margin-top:8px"><button class="chip-btn" data-a="kyb">View status</button><button class="chip-btn ghost" data-a="kybVerify">Mark verified (demo)</button></span></div>` : `<div class="kybm warn"><b>Verify your business to start moving money.</b> Collect, Pay, Earn and loans unlock once verified. About 10 minutes.<span class="ob-row" style="margin-top:8px"><button class="chip-btn" data-a="kyb">Verify now</button></span></div>`}
         <div class="top"><span class="who"><span class="avatar">KE</span>KOLA EXPORTS LTD</span><span class="pill biz">Business</span></div>
         <section class="hero">
           <button class="chip" data-a="wallet">${w.code} wallet ▾</button>
@@ -404,7 +743,8 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
         ['customers', 'Customer accounts', 'One account per customer, auto-matched', '3 active', 'var(--muted)'],
         ['xero', 'Xero', 'Sync every transaction to your books', S.xero ? 'Connected' : 'Connect', S.xero ? 'var(--ok)' : 'var(--violet)'],
         ['statement', 'Statements', 'CSV and PDF, any currency, any month', 'Download', 'var(--violet)'],
-        ['dev', 'Developers', 'API keys, endpoints, webhooks', 'Test mode', 'var(--muted)']
+        ['dev', 'Developers', 'API keys, endpoints, webhooks', 'Test mode', 'var(--muted)'],
+        ['logout', 'Log out', 'Sign out of Kola Exports Ltd', '', 'var(--muted)']
       ].map((m) => `<button class="row" data-a="more" data-v="${m[0]}"><span class="grow"><span class="t" style="font-size:15px">${m[1]}</span><span class="small">${m[2]}</span></span><span style="flex-shrink:0;font-size:13px;font-weight:600;color:${m[4]}">${m[3]}</span></button>`).join('');
       return `<h1>MORE</h1><div class="list">${items}</div>`;
     },
@@ -430,15 +770,28 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
         <button class="primary" data-a="addCustomer">Add customer account</button>`;
     },
     dev() {
-      const eps = [['POST', '/v1/collection-accounts'], ['POST', '/v1/payouts/bulk'], ['GET ', '/v1/collections/{id}'], ['POST', '/v1/earn/withdrawals'], ['GET ', '/v1/settlements?date=']]
-        .map((e) => `<span><span class="m">${e[0]}</span> ${e[1]}</span>`).join('');
-      const evs = [['collection.credited', 'Added to wallet'], ['collection.on_hold', 'Action needed'], ['payout.completed', 'Reached the payee'], ['payout.failed', 'Returned, with reason'], ['earn.withdrawal.settled', 'Back in wallet']]
-        .map((e) => `<div class="ev"><code>${e[0]}</code><span class="small" style="text-align:right">${e[1]}</span></div>`).join('');
+      const events = ['collection.credited', 'collection.on_hold', 'payout.completed', 'payout.failed', 'earn.withdrawal.settled'];
+      const masked = S.key.slice(0, 8) + '••••••••' + S.key.slice(-4);
+      const keyBlock = S.regen
+        ? `<div class="hold"><p><b>Regenerate the test key?</b></p><p>The current key stops working immediately. Apps using it will fail until you update them.</p><button class="primary" data-a="regenConfirm">Regenerate now</button><button class="secondary" data-a="regenCancel">Cancel</button></div>`
+        : S.keyShown
+          ? `<div class="card"><span class="small" style="font-weight:600">New test key. Copy it now; we won't show it again.</span><div class="keybox">${S.key}</div><button class="primary" data-a="keySaved">I've saved it</button></div>`
+          : `<div class="card"><span class="small" style="font-weight:600">Test API key</span><span style="font-family:var(--mono);font-size:13px">${masked}</span></div><button class="secondary" data-a="regen">Regenerate key</button>`;
+      const ips = S.ips.map((ip, i) => `<div class="row" style="min-height:56px"><span class="grow"><span class="t" style="font-family:var(--mono);font-size:13px">${ip[0]}</span><span class="small">${ip[1]}</span></span><button class="copy" style="width:auto;padding:0 8px;color:var(--violet);font-weight:600" data-a="ipRemove" data-v="${i}" aria-label="Remove ${ip[0]}">Remove</button></div>`).join('');
       return `${back()}<h1>DEVELOPERS</h1><p class="lede">Collect, pay and track from your own systems.</p>
-        <div class="card"><span class="small" style="font-weight:600">Test API key</span><span style="font-family:var(--mono);font-size:13px">sk_test_••••••••••3f9a</span></div>
-        <div class="term"><span style="color:#B9A8DA">Endpoints</span>${eps}</div>
-        <div class="sect"><h2>Webhook events</h2></div><div class="list">${evs}</div>
-        <button class="primary" data-a="testHook">Send test webhook</button>`;
+        ${keyBlock}
+        <div class="sect"><h2>IP allowlist</h2></div>
+        <div class="list">${ips}</div>
+        <div class="field"><label for="ipnew">Add an IP address or range</label><input id="ipnew" placeholder="e.g. 102.89.34.18" style="font-family:var(--mono)"></div>
+        ${S.ipErr ? `<div class="err">${S.ipErr}</div>` : ''}
+        <button class="secondary" data-a="ipAdd">Add address</button>
+        <div class="sect"><h2>Webhook</h2><span class="pill ${S.hookSaved ? 'ok' : 'warn'}">${S.hookSaved ? 'Configured' : 'Not configured'}</span></div>
+        <div class="field"><label for="hook">Endpoint URL</label><input id="hook" value="${S.hookUrl}" placeholder="https://api.yourbusiness.com/hooks"></div>
+        <div class="list">${events.map((e) => `<div class="setting" style="background:none;padding:6px 0;border-radius:0"><span class="grow"><span class="t" style="font-family:var(--mono);font-size:12.5px;font-weight:600">${e}</span></span>${toggle('hookEvent', e, !!S.hookEvents[e]).replace('data-a="hookEvent"', 'data-a="hookEvent" data-v="' + e + '"')}</div>`).join('')}</div>
+        ${S.hookErr ? `<div class="err">${S.hookErr}</div>` : ''}
+        <button class="primary" data-a="hookSave">Save webhook</button>
+        <button class="secondary" data-a="testHook"${S.hookSaved ? '' : ' disabled'}>Send test event</button>
+        ${S.hookSaved ? '' : '<p class="tiny">Save an endpoint and at least one event before sending a test.</p>'}`;
     }
   };
 
@@ -457,6 +810,11 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
   }
   function go(screen) { S.screen = screen; render(true); }
 
+  function gated() {
+    if (S.kyb === 'verified') return false;
+    flash(S.kyb === 'submitted' ? 'This unlocks once verification is complete.' : 'Verify your business first. Tap "Verify now" on Home.');
+    return true;
+  }
   const actions = {
     go: (v) => go(v),
 
@@ -464,13 +822,14 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
     recip: (v) => { S.recip = v; render(); },
     sendReview: () => { if (!(S.sendAmt > 0)) { flash('Enter an amount to send.'); return; } if (S.recip === 'new' && !S.newName) { flash('Add the name on the account first.'); return; } S.sendStage = 'review'; render(true); },
     sendEdit: () => { S.sendStage = 'form'; render(); },
-    sendConfirm: () => { const q = quote(); S.sendStage = q.ngn > 5000000 ? 'approval' : 'sent'; render(true); flash(q.ngn > 5000000 ? 'Sent to Tunde for approval.' : 'Sent. You can track it here and on Home.'); },
+    sendConfirm: () => { if (gated()) return; const q = quote(); S.sendStage = q.ngn > 5000000 ? 'approval' : 'sent'; render(true); flash(q.ngn > 5000000 ? 'Sent to Tunde for approval.' : 'Sent. You can track it here and on Home.'); },
     sendApprove: () => { S.sendStage = 'sent'; render(true); flash('Approved and sent.'); },
     sendReceipt: () => flash('Receipt copied: share it with your recipient (demo).'),
     sendAgain: () => { S.sendStage = 'form'; S.recip = 'kwame'; render(true); },
     fundCur: (v) => { S.fundCur = v; render(); },
     fundMethod: (v) => { S.fundMethod = v; render(); },
     fundDone: (v) => {
+      if (v !== 'transfer' && gated()) return;
       const a = (document.getElementById('famt') || {}).value;
       flash(v === 'transfer' ? 'Thanks. We\'ll tell you the moment it lands in your ' + S.fundCur + ' wallet.' : v === 'card' ? a + ' added to your ' + S.fundCur + ' wallet (demo).' : a + ' added to your ' + S.fundCur + ' wallet from your ' + document.getElementById('ffrom').value + ' (demo).');
     },
@@ -480,24 +839,44 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
     copy: (v) => flash(v + ' copied'),
     convert: () => { S.convert[S.cur] = !S.convert[S.cur]; render(); },
     share: () => flash(S.cur + ' account details copied. Paste them into an invoice or email.'),
-    activate: () => { S.opened[S.cur] = true; render(); flash('Your ' + S.cur + ' account is ready, in the name Kola Exports Ltd.'); },
+    activate: () => { if (gated()) return; S.opened[S.cur] = true; render(); flash('Your ' + S.cur + ' account is ready, in the name Kola Exports Ltd.'); },
     upload: () => { S.held = false; render(); flash('Invoice uploaded. We will update you here as soon as it is reviewed.'); },
     submit: () => { S.run = 'pending'; render(); flash('Submitted. Tunde will get a notification to approve.'); },
-    approve: () => { S.run = 'sent'; render(); flash('Approved. 12 payouts are on their way; track each one on Home.'); },
+    approve: () => { if (gated()) return; S.run = 'sent'; render(); flash('Approved. 12 payouts are on their way; track each one on Home.'); },
     resetRun: () => { S.run = 'draft'; render(); },
     earnCur: (v) => { S.earnCur = v; render(); },
     sweep: () => { S.sweep = !S.sweep; render(); flash(S.sweep ? 'Evening sweep is on.' : 'Evening sweep is off. Your balance stays in the wallet.'); },
     wd: (v) => { S.wd = v; render(); },
-    withdraw: (v) => flash(S.wd === 'notice' ? v + ' will be back in your wallet on Wed 28 Oct, free.' : v + ' is back in your wallet now, less the 2% instant fee (' + feeOf(v) + ').'),
+    withdraw: (v) => gated() || flash(S.wd === 'notice' ? v + ' will be back in your wallet on Wed 28 Oct, free.' : v + ' is back in your wallet now, less the 2% instant fee (' + feeOf(v) + ').'),
     more: (v) => {
       if (v === 'xero') { S.xero = !S.xero; render(); flash(S.xero ? 'Xero connected. Transactions sync every hour.' : 'Xero disconnected.'); }
+      else if (v === 'logout') window.OB.start('welcome');
       else if (v === 'statement') flash('October statement ready (demo).');
       else go(v);
     },
     rule: () => { S.rule = !S.rule; render(); },
     match: () => { S.match = !S.match; render(); },
     addCustomer: () => flash('New customer account created. Share its details with your customer.'),
-    testHook: () => flash('Test event payout.completed sent to your webhook URL.')
+    kyb: () => window.OB.kyb(),
+    kybVerify: () => { S.kyb = 'verified'; render(); flash('Business verified. Money movement is unlocked.'); },
+    regen: () => { S.regen = true; render(); },
+    regenCancel: () => { S.regen = false; render(); },
+    regenConfirm: () => { S.key = 'sk_test_' + Array.from({ length: 24 }, () => '0123456789abcdef'[Math.floor(Math.random() * 16)]).join(''); S.regen = false; S.keyShown = true; render(); flash('New key created. The old key no longer works.'); },
+    keySaved: () => { S.keyShown = false; render(); },
+    ipAdd: () => {
+      const ip = document.getElementById('ipnew').value.trim();
+      if (!/^(25[0-5]|2[0-4]\d|1?\d?\d)(\.(25[0-5]|2[0-4]\d|1?\d?\d)){3}(\/(3[0-2]|[12]?\d))?$/.test(ip)) { S.ipErr = 'Enter an IPv4 address like 102.89.34.18, or a range like 41.58.120.0/24.'; render(); return; }
+      S.ipErr = ''; S.ips.push([ip, 'Added just now']); render(); flash(ip + ' added to the allowlist.');
+    },
+    ipRemove: (v) => { const ip = S.ips[Number(v)][0]; S.ips.splice(Number(v), 1); render(); flash(ip + ' removed.'); },
+    hookEvent: (v) => { S.hookUrl = document.getElementById('hook').value.trim(); S.hookEvents[v] = !S.hookEvents[v]; S.hookSaved = false; render(); },
+    hookSave: () => {
+      const url = document.getElementById('hook').value.trim(); S.hookUrl = url;
+      if (!/^https:\/\/[^\s/]+\.[^\s]+/.test(url)) { S.hookErr = 'Enter a full https:// address for your endpoint.'; render(); return; }
+      if (!Object.values(S.hookEvents).some(Boolean)) { S.hookErr = 'Choose at least one event.'; render(); return; }
+      S.hookErr = ''; S.hookSaved = true; render(); flash('Webhook saved. You can send a test event now.');
+    },
+    testHook: () => { if (S.hookSaved) flash('Test event sent to ' + S.hookUrl + ' and returned 200 OK (demo).'); }
   };
 
   document.querySelector('.phone').addEventListener('click', (ev) => {
@@ -518,7 +897,10 @@ h1 { margin: 6px 0 0; font-family: var(--display); font-weight: 400; font-size: 
     if (id === 'ncountry') { S.newCur = e.target.value; S.newType = ''; render(); }
     if (id === 'ntype') S.newType = e.target.value;
   });
+  window.obKyb = (status) => { S.kyb = status; };
+  window.obHostShow = (app) => { document.getElementById('ob').hidden = app; screenEl.hidden = !app; tabsEl.hidden = !app; toastEl.hidden = true; if (app) { S.screen = 'home'; render(true); } };
   render(true);
+  window.OB.start('welcome');
 })();
 </script>
 
